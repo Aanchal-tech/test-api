@@ -1,2 +1,35 @@
+jwt:
+  secret: sampletest
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: trace
+        type:
+          descriptor:
+            sql: trace
+      springframework: info
+  pattern:
+    console: '%d{dd-MM-yy} %d{HH:mm:ss.SSS} %-20.20thread %5p %-25.25logger{25} %25M
+      %4L %m%n'
 server:
-  port: 8040
+  port: 8090
+  servlet:
+    context-path: /authapp
+spring:
+  application:
+    name: authapp
+  datasource:
+    driverClassName: org.h2.Driver
+    initialization-mode: always
+    password: ''
+    url: jdbc:h2:mem:authdb
+    username: sa
+  jackson:
+    default-property-inclusion: non-null
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
